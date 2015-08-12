@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+
+[[ -z $IMAGE ]] && IMAGE="mauchede/drive"
+[[ -z $TAG ]] && TAG="0.2.8"
+
+docker run \
+    --rm \
+    -v /etc/group:/etc/group:ro \
+    -v /etc/passwd:/etc/passwd:ro \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v $HOME:$HOME \
+    -v "$PWD:$PWD" \
+    -u $USER \
+    -w "$PWD" \
+    -ti $IMAGE:$TAG "$@"
