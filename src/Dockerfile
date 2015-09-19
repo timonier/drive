@@ -1,7 +1,7 @@
 FROM golang:1.3
 MAINTAINER Morgan Auchede <morgan.auchede@gmail.com>
 
-ENV DRIVE_VERSION v0.2.8
+ENV DRIVE_VERSION v0.2.9
 
 RUN set -x \
     && mkdir -p $GOPATH/src/github.com/odeke-em/drive \
