@@ -1,7 +1,7 @@
 FROM alpine:3.1
 MAINTAINER Morgan Auchede <morgan.auchede@gmail.com>
 
-ENV DRIVE_VERSION v0.3.2
+ENV DRIVE_VERSION v0.3.3
 
 RUN set -x \
     && BUILD_DEPS="git go" \

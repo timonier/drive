@@ -13,7 +13,7 @@ Run the script `drive`:
 
 ```bash
 drive version
-# drive version: 0.3.2
+# drive version: 0.3.3
 # ...
 
 drive init ~/gdrive
@@ -21,11 +21,11 @@ cd ~/gdrive
 drive pull
 ```
 
-__Note__: By default, the version `0.3.2` will be used. To change the version, define the `TAG` before the command. For example:
+__Note__: By default, the version `0.3.3` will be used. To change the version, define the `TAG` before the command. For example:
 
 ```bash
 drive version
-# drive version: 0.3.2
+# drive version: 0.3.3
 # ...
 
 TAG="0.2.9" drive version
