@@ -3,7 +3,7 @@
 Copy the script `bin/drive` into your executable folder (like `/usr/local/bin` or `$HOME/bin`).
 
 ```bash
-sudo curl -sLo /usr/local/bin/drive https://github.com/mauchede/aria2/raw/master/bin/drive
+sudo curl -sLo /usr/local/bin/drive https://github.com/timonier/drive/raw/master/bin/drive
 sudo chmod +x /usr/local/bin/drive
 ```
 
@@ -21,15 +21,15 @@ cd ~/gdrive
 drive pull
 ```
 
-__Note__: By default, the version `0.3.3` will be used. To change the version, define the `TAG` before the command. For example:
+__Note__: By default, the version `0.3.3` will be used. To change the version, define the `TAG` before the command:
 
 ```bash
 drive version
 # drive version: 0.3.3
 # ...
 
-TAG="0.2.9" drive version
-# drive version: 0.2.9
+TAG="0.3.2" drive version
+# drive version: 0.3.2
 # ...
 ```
 
@@ -45,5 +45,5 @@ __Note__: Use the script `bin/build` to test your modifications locally.
 
 ### Links
 
-* [image "mauchede/drive"](https://hub.docker.com/r/mauchede/drive/)
-* [odeke-em/drive](https://github.com/odeke-em/drive)
+* [drive](https://github.com/odeke-em/drive)
+* [image "timonier/drive"](https://hub.docker.com/r/timonier/drive/)

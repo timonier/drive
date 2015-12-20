@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-[[ -z $IMAGE ]] && IMAGE="mauchede/drive"
-[[ -z $TAG ]] && TAG="0.3.3"
+IMAGE=${IMAGE:-timonier/drive}
+TAG=${TAG:-0.3.3}
 
 docker run \
     --rm \
