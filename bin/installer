@@ -1,0 +1,25 @@
+#!/bin/bash
+
+fail() {
+    echo $1 1>&2
+    echo "Usage: $0 [install|uninstall]" 1>&2
+    exit 1
+}
+
+[[ $# -lt 1 ]] && fail "Invalid number of arguments"
+[[ $EUID != 0 ]] && fail "Impossible to prepare the system without root privileges."
+[[ $(uname) != Linux ]] && fail "Impossible to prepare another operating system than Linux."
+
+case $1 in
+    install )
+        curl -sLo /usr/local/bin/drive https://github.com/timonier/drive/raw/master/bin/drive
+        chmod +x /usr/local/bin/drive
+    ;;
+
+    uninstall )
+        rm /usr/local/bin/drive
+    ;;
+
+    * )
+        fail "Argument $1 is invalid."
+esac
