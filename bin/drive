@@ -1,16 +1,18 @@
 #!/bin/bash
-set -e
 
-IMAGE=${IMAGE:-timonier/drive}
-TAG=${TAG:-0.3.3}
+USER=$(/usr/bin/id -nu)
+HOME=$(/usr/bin/getent passwd $USER | cut -d: -f6)
+PWD=$(/bin/pwd)
 
 docker run \
-    --rm \
+    -i \
+    -t=$([[ -t 0 ]] && echo "true" || echo "false") \
+    -u "$USER" \
     -v /etc/group:/etc/group:ro \
     -v /etc/passwd:/etc/passwd:ro \
     -v /etc/localtime:/etc/localtime:ro \
-    -v $HOME:$HOME \
+    -v "$HOME:$HOME" \
     -v "$PWD:$PWD" \
-    -u $USER \
     -w "$PWD" \
-    -ti $IMAGE:$TAG "$@"
+    --rm \
+    ${IMAGE:-timonier/drive}:${TAG:-0.3.3} "$@"

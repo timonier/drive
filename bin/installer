@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 
 fail() {
     echo $1 1>&2
@@ -12,7 +13,7 @@ fail() {
 
 case $1 in
     install )
-        curl -sLo /usr/local/bin/drive https://github.com/timonier/drive/raw/master/bin/drive
+        curl -sLo /usr/local/bin/drive "https://github.com/timonier/drive/raw/master/bin/drive"
         chmod +x /usr/local/bin/drive
     ;;
 

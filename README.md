@@ -1,27 +1,23 @@
-### Installation
+# Installation
 
 Copy the script `bin/drive` into your executable folder (like `/usr/local/bin` or `$HOME/bin`).
 
 ```bash
-sudo curl -sLo /usr/local/bin/drive https://github.com/timonier/drive/raw/master/bin/drive
+sudo curl -sLo /usr/local/bin/drive "https://github.com/timonier/drive/raw/master/bin/drive"
 sudo chmod +x /usr/local/bin/drive
 ```
 
 Linux users can use the [installer](https://github.com/timonier/drive/blob/master/bin/installer):
 
 ```bash
-curl -sSL https://github.com/timonier/drive/raw/master/bin/installer | sudo bash -s install
+curl -sL "https://github.com/timonier/drive/raw/master/bin/installer" | sudo bash -s install
 ```
 
-### Usage
+# Usage
 
 Run the script `drive`:
 
 ```bash
-drive version
-# drive version: 0.3.3
-# ...
-
 drive init ~/gdrive
 cd ~/gdrive
 drive pull
@@ -39,7 +35,7 @@ TAG="0.3.2" drive version
 # ...
 ```
 
-### Contributing
+# Contributing
 
 1. Fork it.
 2. Create your branch: `git checkout -b my-new-feature`.
@@ -49,7 +45,7 @@ TAG="0.3.2" drive version
 
 __Note__: Use the script `bin/build` to test your modifications locally.
 
-### Links
+# Links
 
 * [drive](https://github.com/odeke-em/drive)
 * [image "timonier/drive"](https://hub.docker.com/r/timonier/drive/)
