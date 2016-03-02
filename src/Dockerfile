@@ -1,4 +1,4 @@
-FROM alpine:3.1
+FROM alpine:3.3
 MAINTAINER Morgan Auchede <morgan.auchede@gmail.com>
 
 ENV \
@@ -13,6 +13,7 @@ RUN set -x \
     # Install packages
 
     && BUILD_DEPS="git go" \
+
     && apk add \
            $BUILD_DEPS \
 
@@ -28,6 +29,7 @@ RUN set -x \
 
     && apk del \
            $BUILD_DEPS \
+
     && rm -rf \
            /go \
            /var/cache/apk/*
