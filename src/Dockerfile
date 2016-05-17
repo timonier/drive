@@ -6,32 +6,28 @@ ENV \
 
 RUN set -x \
 
-    # Prepare system
-
-    && apk add -U \
-
     # Install packages
 
-    && BUILD_DEPS="git go" \
+    && apk add --no-cache --no-progress --virtual build_deps \
+           build-base \
+           git \
+           go \
 
-    && apk add \
-           $BUILD_DEPS \
+    # Install drive
 
-    # Compile drive
-
-    && mkdir -p /go/src/github.com/odeke-em/drive \
-    && git clone https://github.com/odeke-em/drive.git /go/src/github.com/odeke-em/drive \
-    && git -C /go/src/github.com/odeke-em/drive checkout v$DRIVE_VERSION \
-    && CGO_ENABLED=0 GOPATH=/go go get github.com/odeke-em/drive/cmd/drive \
-    && mv /go/bin/drive /usr/bin/drive \
+    && export GOPATH=/tmp \
+    && mkdir -p $GOPATH/src/github.com/odeke-em/drive \
+    && git clone https://github.com/odeke-em/drive.git $GOPATH/src/github.com/odeke-em/drive \
+    && git -C $GOPATH/src/github.com/odeke-em/drive checkout v$DRIVE_VERSION \
+    && go get -v github.com/odeke-em/drive/cmd/drive \
+    && mv $GOPATH/bin/drive /usr/bin/drive \
 
     # Clean
 
-    && apk del \
-           $BUILD_DEPS \
+    && apk del --no-progress \
+           build_deps \
 
     && rm -rf \
-           /go \
-           /var/cache/apk/*
+           /tmp/*
 
 ENTRYPOINT [ "/usr/bin/drive" ]
