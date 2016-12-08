@@ -15,4 +15,4 @@ docker run \
     -v "$PWD:$PWD" \
     -w "$PWD" \
     --rm \
-    ${IMAGE:-timonier/drive}:${TAG:-0.3.5} "$@"
+    ${IMAGE:-timonier/drive}:${TAG:-0.3.6} "$@"
