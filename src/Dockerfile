@@ -2,7 +2,7 @@ FROM alpine:3.4
 MAINTAINER Morgan Auchede <morgan.auchede@gmail.com>
 
 ENV \
-    DRIVE_VERSION=0.3.7
+    DRIVE_VERSION=0.3.8
 
 RUN set -x \
 
