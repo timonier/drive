@@ -13,6 +13,9 @@ RUN set -x \
            git \
            go \
 
+    && apk add --no-cache --no-progress \
+          ca-certificates \
+
     # Install drive
 
     && export GOPATH=/tmp \
