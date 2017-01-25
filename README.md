@@ -1,8 +1,10 @@
 # README
 
+Pull or push Google Drive files
+
 ## Installation
 
-Copy the script `bin/drive` into your executable folder (like `/usr/local/bin` or `$HOME/bin`).
+Copy the script `bin/drive` into your executable folder (like `/usr/local/bin` or `$HOME/bin`):
 
 ```sh
 sudo curl -sLo /usr/local/bin/drive "https://github.com/timonier/drive/raw/master/bin/drive"
@@ -51,3 +53,4 @@ __Note__: Use the script `bin/build` to test your modifications locally.
 
 * [drive](https://github.com/odeke-em/drive)
 * [image "timonier/drive"](https://hub.docker.com/r/timonier/drive/)
+* [timonier/dumb-entrypoint](https://github.com/timonier/dumb-entrypoint)
