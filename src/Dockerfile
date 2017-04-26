@@ -1,16 +1,20 @@
-FROM alpine:3.4
+FROM alpine:latest
 
 LABEL \
     maintainer="Morgan Auchede <morgan.auchede@gmail.com>"
 
 ENV \
-    DRIVE_VERSION=0.3.8
+    DRIVE_VERSION=latest
 
-RUN set -x \
+RUN set -eux \
+
+    # Prepare system
+
+    && export GOPATH=/tmp \
 
     # Install packages
 
-    && apk add --no-cache --no-progress --virtual build_deps \
+    && apk add --no-cache --no-progress --virtual BUILD_DEPS \
            build-base \
            curl \
            git \
@@ -21,23 +25,24 @@ RUN set -x \
 
     # Install drive
 
-    && export GOPATH=/tmp \
-    && mkdir -p ${GOPATH}/src/github.com/odeke-em/drive \
-    && git clone https://github.com/odeke-em/drive.git ${GOPATH}/src/github.com/odeke-em/drive \
-    && git -C ${GOPATH}/src/github.com/odeke-em/drive checkout v${DRIVE_VERSION} \
-    && go get -v github.com/odeke-em/drive/cmd/drive \
-    && mv ${GOPATH}/bin/drive /usr/bin/drive \
+    && export $(curl "https://raw.githubusercontent.com/timonier/version-lister/release/generated/drive/${DRIVE_VERSION}" | xargs) \
 
-    # Install timonier/dumb-entrypoint
+    && mkdir -p "${GOPATH}/src/github.com/odeke-em/drive" \
+    && git clone "https://github.com/odeke-em/drive.git" "${GOPATH}/src/github.com/odeke-em/drive" \
+    && git -C "${GOPATH}/src/github.com/odeke-em/drive" checkout "v${DRIVE_VERSION}" \
+    && go get github.com/odeke-em/drive/cmd/drive \
+    && mv "${GOPATH}/bin/drive" /usr/bin/drive \
 
-    && curl -sL "https://github.com/timonier/dumb-entrypoint/raw/master/bin/installer" | INSTALL_DIRECTORY="/usr/sbin" sh -s install \
+    # Install dumb-entrypoint
+
+    && curl --location "https://github.com/timonier/dumb-entrypoint/raw/master/bin/installer" | INSTALL_DIRECTORY="/usr/sbin" sh -s install \
 
     # Clean
 
     && apk del --no-progress \
-           build_deps \
+           BUILD_DEPS \
 
-    && rm -rf \
+    && rm -f -r \
            /tmp/*
 
 ENTRYPOINT [ "dumb-init" , "--" , "dumb-entrypoint" ]

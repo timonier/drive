@@ -4,39 +4,33 @@ Pull or push Google Drive files
 
 ## Installation
 
-Copy the script `bin/drive` into your executable folder (like `/usr/local/bin` or `$HOME/bin`):
+Copy `bin/drive` into your executable folder (like `/usr/local/bin` or `$HOME/bin`):
 
 ```sh
-sudo curl -sLo /usr/local/bin/drive "https://github.com/timonier/drive/raw/master/bin/drive"
+sudo curl --location --output /usr/local/bin/drive "https://github.com/timonier/drive/raw/master/bin/drive"
 sudo chmod +x /usr/local/bin/drive
 ```
 
 Linux users can use the [installer](https://github.com/timonier/drive/blob/master/bin/installer):
 
 ```sh
-curl -sL "https://github.com/timonier/drive/raw/master/bin/installer" | sudo sh -s install
+curl --location "https://github.com/timonier/drive/raw/master/bin/installer" | sudo sh -s install
 ```
 
 ## Usage
 
-Run the script `drive`:
+Run the command `drive`:
 
 ```sh
+# See all drive options
+
+drive --help
+
+# Run drive
+
 drive init ~/gdrive
 cd ~/gdrive
 drive pull
-```
-
-__Note__: By default, the version `0.3.8` will be used. To change the version, define the `TAG` before the command:
-
-```sh
-drive version
-# drive version: 0.3.8
-# ...
-
-TAG="0.3.2" drive version
-# drive version: 0.3.2
-# ...
 ```
 
 ## Contributing
@@ -51,6 +45,7 @@ __Note__: Use the script `bin/build` to test your modifications locally.
 
 ## Links
 
-* [drive](https://github.com/odeke-em/drive)
+* [odeke-em/drive](https://github.com/odeke-em/drive)
 * [image "timonier/drive"](https://hub.docker.com/r/timonier/drive/)
 * [timonier/dumb-entrypoint](https://github.com/timonier/dumb-entrypoint)
+* [timonier/version-lister](https://github.com/timonier/version-lister)
