@@ -14,7 +14,7 @@ sudo chmod +x /usr/local/bin/drive
 Linux users can use the [installer](https://github.com/timonier/drive/blob/master/bin/installer):
 
 ```sh
-curl --location "https://github.com/timonier/drive/raw/master/bin/installer" | sudo sh -s install
+curl --location "https://github.com/timonier/drive/raw/master/bin/installer" | sudo sh -s -- install
 ```
 
 ## Usage
