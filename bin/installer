@@ -25,7 +25,7 @@ fi
 
 case "$1" in
     install )
-        curl --location --output /usr/local/bin/drive "https://github.com/timonier/drive/raw/master/bin/drive"
+        curl --location --output /usr/local/bin/drive "https://github.com/timonier/drive/raw/master/bin/cmd"
         chmod +x /usr/local/bin/drive
     ;;
 

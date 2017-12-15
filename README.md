@@ -4,13 +4,6 @@ Pull or push Google Drive files
 
 ## Installation
 
-Copy `bin/drive` into your executable folder (like `/usr/local/bin` or `$HOME/bin`):
-
-```sh
-sudo curl --location --output /usr/local/bin/drive "https://github.com/timonier/drive/raw/master/bin/drive"
-sudo chmod +x /usr/local/bin/drive
-```
-
 Linux users can use the [installer](https://github.com/timonier/drive/blob/master/bin/installer):
 
 ```sh

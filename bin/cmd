@@ -20,4 +20,4 @@ docker run \
     --volume "${HOME}:${HOME}" \
     --volume "${PWD}:${PWD}" \
     --workdir "${PWD}" \
-    "${IMAGE:-timonier/drive}:${TAG:-latest}" drive "$@"
+    "${IMAGE:-timonier/drive}:${TAG:-latest}" "$(basename "$0")" "$@"
