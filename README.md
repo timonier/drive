@@ -4,8 +4,6 @@ Pull or push Google Drive files
 
 ## Installation
 
-Linux users can use the [installer](https://github.com/timonier/drive/blob/master/bin/installer):
-
 ```sh
 # Define installation folder
 
