@@ -44,7 +44,7 @@ drive pull
 4. Push to the branch: `git push origin my-new-feature`.
 5. Submit a pull request.
 
-__Note__: Use the script `bin/build` to test your modifications locally.
+__Note__: Use the script `bin/build-image` to test your modifications locally.
 
 If you like / use this project, please let me known by adding a [★](https://help.github.com/articles/about-stars/) on the [GitHub repository](https://github.com/timonier/drive).
 
