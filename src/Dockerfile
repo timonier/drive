@@ -23,7 +23,7 @@ RUN set -e -u -x \
     # Install packages
 \
     && apk add --no-cache --no-progress --virtual BUILD_DEPS curl \
-    && apk add --no-cache --no-progress ca-certificates \
+    && apk add --no-cache --no-progress bash ca-certificates \
 \
     # Install dumb-entrypoint
 \
