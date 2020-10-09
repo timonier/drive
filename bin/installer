@@ -25,7 +25,7 @@ case "$1" in
         if [ -t 0 ]; then
             cp cmd "${INSTALL_DIRECTORY}"/drive
         else
-            curl --location --output "${INSTALL_DIRECTORY}"/drive "https://gitlab.com/timonier/drive/raw/master/bin/cmd"
+            curl --location --output "${INSTALL_DIRECTORY}"/drive "https://github.com/timonier/drive/raw/master/bin/cmd"
         fi
 
         chmod +x "${INSTALL_DIRECTORY}"/drive

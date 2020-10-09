@@ -23,12 +23,7 @@ RUN set -e -u -x \
     # Install packages
 \
     && apk add --no-cache --no-progress --virtual BUILD_DEPS curl \
-    && apk add --no-cache --no-progress bash ca-certificates \
-\
-    # Install dumb-entrypoint
-\
-    && curl --location "https://gitlab.com/timonier/dumb-entrypoint/raw/master/src/dumb-entrypoint/installer" | bash -s -- install \
-    && curl --location "https://gitlab.com/timonier/dumb-entrypoint/raw/master/src/gosu/installer" | bash -s -- install \
+    && apk add --no-cache --no-progress bash ca-certificates tzdata \
 \
     # Clean
 \
@@ -36,5 +31,3 @@ RUN set -e -u -x \
     && rm -f -r /tmp/*
 
 COPY --from=drive /go/bin/drive /usr/local/bin/drive
-
-ENTRYPOINT [ "dumb-entrypoint" ]
